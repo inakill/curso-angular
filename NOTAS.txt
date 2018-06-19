@@ -1,0 +1,4 @@
+tsc app
+tsc -w app
+tsc -init
+	-> tsconfig.json
