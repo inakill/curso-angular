@@ -1,5 +1,20 @@
-// Un archivo simple de TypeScript
+tsc app
+tsc -w app
+tsc -init
+	-> tsconfig.json
 
+	
+//VARIABLES	
+let variableName = "hola"; //instead of var
+	"variables con scope interno"
+	
+//CONSTANTES
+const OPCIONES = "todas";
+	//siempre se tienen que inicializar y no puede ser cambiada
+	//se puede sobreescribir en un scope distinto
+
+
+// Un archivo simple de TypeScript
 let nombre:string = "Peter";
 let numero:number = 123;
 let booleano:boolean = true;
@@ -118,4 +133,44 @@ let wolverine:Xmen = {
 
 function enviarMision(xmen:Xmen){
     console.log("Enviando a: " + xmen.nombre);
+}
+
+
+//Definicion de clases en Typescript
+//------------------------------------
+
+export class Avenger{ //export para modulo exportable, se pueden importar en otras clases
+    nombre:string;
+    equipo:string;
+    nombreReal:string;
+    puedePelear:boolean = false;
+
+    constructor(nombre:string, equipo:string, nombreReal:string){
+        this.nombre=nombre;
+        this.equipo=equipo;
+        this.nombreReal=nombreReal;
+    }
+}
+
+import {Xmen} from "./classes/Xmen.class"
+let antman:Avenger = new Avenger("Antman", "cap", "Scott");
+
+//Multiple exportacion con fichero intermedio:
+export{Xmen} from "./xmen.class";
+export{Villano} from "./villano.clcass";
+
+import{Xmen, Villano} from "./classes/index";
+
+//Decoradores de clases
+@consola
+class Villano {
+
+    constructor(public nombre:string){
+
+    }
+}
+
+
+function consola( constructor:Function){
+    console.log(constructor);
 }
