@@ -12,13 +12,13 @@
 
 /* CREANDO ENTORNO LOCAL:
 ---------------------------
-ng new my-app
+ng new my-app - Genera una aplicación nueva con todos los paquetes definidos en el package.json
 ng serve -o (servidor local en 4200 y -o abre el navegador)
+ng g c components/footer - Generate component
 
 
 ESTRUCTURA DE UN PROYECTO:
 --------------------------
-
 e2e -> pruebas e2e (pruebas automaticas)
 node_modules -> paquetes de node. Depende de package.json
 src -> codigo fuente
@@ -42,6 +42,11 @@ package.json -> Se crea de forma automatica, especifica las dependencias necesar
 README.md -> github...
 tsconfig.json -> Configuracion de typescript, estandar de ecmascript... etc.
 tslint.json -> fichero de reglas de tslint.
+
+
+BOOTSTRAP 4
+------------
+getBootstrap.com y copiar css (y js)
 
 
 
