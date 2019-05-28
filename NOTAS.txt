@@ -22,6 +22,61 @@ En el directorio raiz:
 >npm install bootstrap --save
 Añade las dependencias a node_modules
 
+Añadir en angular.json
+  "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
+...
+
+
+RUTAS
+-----------
+Especificar las "páginas" en app.routes.ts 
+En el navbar usar  [routerLink]="['home']" para cada elemento
+
+SERVICIOS
+----------
+Crear directorio de SERVICIOS
+Crear heroes.service.ts
+    import { Injectable } from '@angular/core';
+
+    @Injectable()
+    export class HeroesService {
+        constructor() { 
+            console.log("Servicio listo");
+        }
+    }
+
+Importar el servicio en app.module.ts
+    import { HeroesService } from "./services/heroes.service";
+
+Añadirlo en NgModules
+      providers: [
+        HeroesService
+      ],   
+
+Importarlo en el componente (heroes.component.ts) (Heroe es la interfaz con el tipado de datos)
+    import { HeroesService, Heroe } from "../../services/heroes.service";
+
+Declararlo en el constructor
+    constructor(private _heroesService:HeroesService) {
+
+   }
+
+Crear atributo para almacenar los datos
+     heroes:Heroe[] = []
+
+Llamar al servicio en el onInit
+    ngOnInit() {
+        this.heroes = this._heroesService.getHeroes();
+    }
+    
 
 ESTRUCTURA DE UN PROYECTO:
 --------------------------
